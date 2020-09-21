@@ -1,0 +1,12 @@
+.user-avatar{
+    width: 100%;
+}
+
+img.user-avatar__photo{
+    max-width: 100%;
+    height: auto;
+}
+
+.profile-content{
+    margin-top: 20px;
+}

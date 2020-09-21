@@ -1,0 +1,48 @@
+.post-card{
+
+}
+
+.preview{
+
+}
+
+.preview img{
+    max-width: 100%;
+    height: auto;
+}
+
+.post-card__content{
+
+}
+
+.post-card__description{
+
+}
+
+div.row.pagination{
+    padding: 0.1px 5px;
+    background: #e0e0e0;
+    width: fit-content;
+    width: -moz-fit-content;
+    margin: 0 auto;
+    font-size: 0;
+}
+
+.pagination__item{
+    padding: 5px 15px;
+    text-align: center;
+    display: inline-block;
+    font-size: 18px;
+    margin-top: -3px;
+    margin-bottom: 3px;
+    box-shadow: 0 0 5px 0 #000;
+}
+
+.pagination__item.deactive{
+    background: #aaa;
+}
+
+.pagination__item.active{
+    background: tomato;
+    color: #fff;
+}

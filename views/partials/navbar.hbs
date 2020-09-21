@@ -1,0 +1,92 @@
+<nav>
+  <div class="nav-wrapper green navbar">
+    <a href="/" class="brand-logo">Node Blog</a>
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      {{#if isMain}}
+        <li class="active"><a href="/">Главная</a></li>
+      {{else}}
+        <li><a href="/">Главная</a></li>
+      {{/if}}
+
+      {{#if isArticle}}
+        <li class="active"><a href="/article/search">Посты</a></li>
+      {{else}}
+        <li><a href="/article/search">Посты</a></li>
+      {{/if}}
+
+      {{#if isAuth}}
+        {{#if isAddArticle}}
+          <li class="active"><a href="/article/create">Добавить пост</a></li>
+        {{else}}
+          <li><a href="/article/create">Добавить Пост</a></li>
+        {{/if}}
+          <li>
+            {{#if photoAvatar}}
+              <a class='dropdown-trigger btn green' href='#' data-target='dropdown1'>
+                <img src="/{{photoAvatar}}" alt="Аватар" class="mini-avatar">
+              </a>
+            {{else}}
+            <a class='dropdown-trigger btn green' href='#' data-target='dropdown1'><i
+                class="large material-icons">account_circle</i></a>
+            {{/if}}
+          </li>
+          <!-- Dropdown Structure -->
+          <ul id='dropdown1' class='dropdown-content'>
+            <li><a href="/user">Профиль</a></li>
+            <li><a href="/auth/logout">Выйти</a></li>
+          </ul>
+      {{else}}
+
+        {{#if isAuthPage}}
+          <li class="active"><a href="/auth/login#logintab">Войти</a></li>
+        {{else}}
+          <li><a href="/auth/login#logintab">Войти</a></li>
+        {{/if}}
+      {{/if}}
+    </ul>
+  </div>
+</nav>
+<ul class="sidenav" id="mobile-demo">
+  {{#if isMain}}
+        <li class="active"><a href="/">Главная</a></li>
+      {{else}}
+        <li><a href="/">Главная</a></li>
+      {{/if}}
+
+      {{#if isArticle}}
+        <li class="active"><a href="/article/search">Посты</a></li>
+      {{else}}
+        <li><a href="/article/search">Посты</a></li>
+      {{/if}}
+
+      {{#if isAuth}}
+        {{#if isAddArticle}}
+          <li class="active"><a href="/article/create">Добавить пост</a></li>
+        {{else}}
+          <li><a href="/article/create">Добавить Пост</a></li>
+        {{/if}}
+          <li>
+            {{#if photoAvatar}}
+              <a class='dropdown-trigger btn green' href='#' data-target='dropdown2'>
+                <img src="/{{photoAvatar}}" alt="Аватар" class="mini-avatar mini-avatar--medium">
+              </a>
+            {{else}}
+            <a class='dropdown-trigger btn green' href='#' data-target='dropdown2'><i
+                class="large material-icons">account_circle</i></a>
+            {{/if}}
+          </li>
+          <!-- Dropdown Structure -->
+          <ul id='dropdown2' class='dropdown-content'>
+            <li><a href="/user">Профиль</a></li>
+            <li><a href="/auth/logout">Выйти</a></li>
+          </ul>
+      {{else}}
+
+        {{#if isAuthPage}}
+          <li class="active"><a href="/auth/login#logintab">Войти</a></li>
+        {{else}}
+          <li><a href="/auth/login#logintab">Войти</a></li>
+        {{/if}}
+      {{/if}}
+</ul>

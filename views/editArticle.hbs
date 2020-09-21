@@ -1,0 +1,79 @@
+<link rel="stylesheet" href="/css/createArticle.css">
+<div class="row">
+
+    {{#if editError}}
+        <div class="col s8 offset-s2 error-alert">{{editError}}</div>
+    {{/if}}
+
+    <h2>Редактирование поста</h2>
+    <form action="/article/edit/{{post._id}}" method="POST" enctype="multipart/form-data" id="postForm">
+        <p class="col s12">Название статьи</p>
+        <div class="row">   
+            <div class="input-field col s12">
+                <input value="{{post.name}}" id="name" type="text" class="validate" required name="postname" minlength="6" maxlength="56">
+                <label for="name">Название статьи</label>
+                <span class="helper-text" data-error="Название должно быть длинне 5 символов"
+                    data-success="верно!">Введите название статьи</span>
+            </div>
+        </div>
+
+        <p>Превью(Если вставить новое значение то измениться)</p>
+        <div class="file-field input-field col s6">
+            <div class="btn">
+                <span>File</span>
+                <input type="file" name="postPhoto" accept="image/jpeg,image/png,image/jpg">
+            </div>
+            <div class="file-path-wrapper">
+                <input class="file-path validate" type="text">
+            </div>
+        </div>
+        <div class="col s12 l6">
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea name="tags" id="textarea0" class="materialize-textarea">{{tags}}</textarea>
+                    <label for="textarea0">Тэги. Между тэгами знак *</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col s12" id="postContnet" >
+            {{#postToEditPage post}}
+            {{/postToEditPage}}
+        </div>
+        <div class="col s12">
+            <hr>
+            <div class="btn green lighten-1" id="textBtn">Добавить текст</div>
+            <div class="btn yellow darken-2" id="imageBtn">Добавить картинку</div>
+            <a class="waves-effect waves-light btn modal-trigger" href="#modal1" id="imageBtn">Помощь</a>
+
+            <!-- Modal Structure -->
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                <h4>Что можно использовать</h4>
+                <p>
+                    Можно изменить вид текста: <br>
+                        [h4]текст[/h4] - Сделать заголовком участок текста <br>
+                        [b]текст[/b] - Сделать участок текста толстым <br>
+                        [i]текст[/i] - сделать участок текста наклонным <br>
+                    <br><br>
+                    Текст можно вбивать любой, но с ограничением от 20 символов до 1500. <br>
+                    Фото - превью можно не указывать тогда будет установлено фото по-умолчанию. <br>
+                    Иные фото обязательно указывать. <br>
+                    Также следует указать название статьи и минимум 1 тэг. <br>
+
+                </p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Понятно</a>
+                </div>
+            </div>
+            <hr>
+        </div>
+        <hr>
+        <br><br>
+        <button class="btn waves-effect waves-light" type="submit">Изменить!</button>
+            
+        <input type="hidden" name="_csrf" value="{{csrf}}">
+    </form>
+</div>
+<script defer src="/js/editArticlePage.js"></script>

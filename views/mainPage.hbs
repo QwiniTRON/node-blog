@@ -1,0 +1,63 @@
+<div class="container">
+        <H1 class="hello">Главная блога про node js</H1>
+        <div class="col s6">
+            <h3>Правила блога и информация</h3>
+            <ul class="collapsible popout rules" id="mainCollapseBlock">
+                <li class="active">
+                    <div class="collapsible-header"><i class="material-icons">filter_drama</i>Правила</div>
+                    <div class="collapsible-body">
+                        <ul class="rules__list">
+                            <li class="rules__item">Мат разрешён в умеренном количестве и без обращений к определённым личностям</li>
+                            <li class="rules__item">Критика автора приветствуется</li>
+                            <li class="rules__item">Запрещено ломать почты других пользователей блога</li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">place</i>Цель блога</div>
+                    <div class="collapsible-body"><span>Рассказать о новостях и о нассущм сяего мира</span></div>
+                </li>
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">code</i>Кто ведёт</div>
+                    <div class="collapsible-body"><span>QwiniTRON</span></div>
+                </li>
+            </ul>
+
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col s12 info">
+                <p>Общая информация</p>
+                <p class="view-stat">Количество просмотров: 0</p>
+            </div>
+            <div class="col s12 top-art">
+                <p>Топ пять постов</p>
+            </div>
+        </div>
+</div>
+
+{{#if isArticleCreated}}
+    <script>
+        window.addEventListener('load', (e)=>{
+            window.M.toast({html: 'Статья создана'})
+        })
+    </script>
+{{/if}}
+
+{{#if isArticleEdited}}
+    <script>
+        window.addEventListener('load', (e)=>{
+            window.M.toast({html: 'Статья отредактирована'})
+        })
+    </script>
+{{/if}}
+
+{{#if isPostDeleted}}
+    <script>
+        window.addEventListener('load', (e)=>{
+            window.M.toast({html: 'Пост удалён'})
+        })
+    </script>
+{{/if}}
+
+<script async src="/js/mainPage.js"></script>

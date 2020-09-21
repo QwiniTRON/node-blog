@@ -1,0 +1,11 @@
+.auth-content{
+    margin-top: 25px;
+}
+
+.auth-content .indicator{
+    background-color: #4caf50;
+}
+
+.tabs .tab a.active{
+    background: #e8f5e9 !important;    
+}

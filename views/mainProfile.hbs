@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="/css/mainProfile.css">
+<div class="row profile-content">
+    <div class="col s12 l6 user-avatar">
+        {{#if user.photoName}}
+            <img class="user-avatar__photo" src="/{{user.photoName}}" alt="Картинка профиля">
+        {{else}}
+            <img class="user-avatar__photo" src="/img1.jpg" alt="Картинка профиля">
+        {{/if}}
+    </div>
+    <div class="col s12 l6">
+        <form action="/user/edit" enctype="multipart/form-data" method="POST">
+            <p>Ваш email</p>
+            <p class="col s12">
+                {{user.email}}
+            </p>
+
+            <p>Пароль</p>
+            <p class="col s12">
+                <a href="/user/password" class="waves-effect waves-light btn">Смена пароля</a>
+            </p>
+
+            <p class="col s12">Ваш Никнейм</p>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="name" value="{{user.name}}" type="text" class="validate" required name="name"
+                        minlength="2" maxlength="56">
+                    <label for="name">Имя</label>
+                    <span class="helper-text" data-error="Имя должно быть длинне 1 символа"
+                        data-success="верно!">Введите ваш Никнейм</span>
+                </div>
+            </div>
+
+            <p>Ваш аватар</p>
+            <div class="file-field input-field">
+                <div class="btn">
+                    <span>File</span>
+                    <input type="file" name="profilePhotoFile">
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                </div>
+            </div>
+            <button class="btn waves-effect waves-light" type="submit">Изменить!</button>
+
+            <input type="hidden" name="_csrf" value="{{csrf}}">
+        </form>
+    </div>
+</div>
+<div class="row">
+    <hr>
+    <div class="col s12">
+        <h4>Ваши посты</h4>
+        {{#userPostsToHtml userPosts userDeletedPosts}}
+        {{/userPostsToHtml}}
+    </div>
+</div>

@@ -1,0 +1,107 @@
+<div class="row auth-content">
+
+    <div class="row col s8 offset-s2">
+        <div class="col s12">
+            <ul class="tabs">
+                <li class="tab col s3"><a class="green-text active" href="#logintab">Логин</a></li>
+                <li class="tab col s3"><a class="green-text" href="#registertab">Регистрация</a></li>
+            </ul>
+        </div>
+        <div id="logintab" class="col s12">
+
+            {{#if loginError}}
+                <div class="col s8 offset-s2 error-alert">{{loginError}}</div>
+            {{/if}}
+
+            <form action="/auth/login" method="POST">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input value="{{inputsData.emailL}}" id="emailL" type="email" name="email" required
+                            class="validate">
+                        <label for="emailL">Email</label>
+                        <span class="helper-text" data-error="Введите email адрес" data-success="верно!">Введите email
+                            адрес по
+                            формату</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input value="{{inputsData.passwordL}}" id="passwordL" type="password" required name="password"
+                            class="validate" minlength="6" maxlength="56">
+                        <label for="passwordL">Пароль</label>
+                        <span class="helper-text" data-error="Пароль должен быть длиннее 5 символов"
+                            data-success="верно!">Введите ваш пароль, длинна не
+                            менее 6
+                            символов</span>
+                    </div>
+                </div>
+                <div class="col s12">
+                    <label>
+                        <input type="checkbox" name="remember" value="rememberme" class="filled-in" />
+                        <span>Запомнить меня</span>
+                    </label>
+                </div><br><br>
+                <div class="col s12">
+                    <a href="#">Восстановить пароль</a>
+                </div><br><br>
+                <button class="btn waves-effect waves-light">Войти</button>
+
+                <input type="hidden" name="_csrf" value="{{csrf}}">
+            </form>
+        </div>
+
+        {{!-- reg --}}
+
+        <div id="registertab" class="col s12">
+            {{#if registerError}}
+            <div class="col s8 offset-s2 error-alert flow-text">{{registerError}}</div>
+            {{/if}}
+            <form action="/auth/register" method="POST">
+                <div class="row">
+                    <div class="input-field col s12 ">
+                        <input value="{{inputsData.email}}" id="email" type="email" name="email" required
+                            class="validate">
+                        <label for="email">Email</label>
+                        <span class="helper-text" data-error="Введите email адрес" data-success="верно!">Введите email
+                            адрес по
+                            формату</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input value="{{inputsData.password}}" id="password" type="password" required name="password"
+                            class="validate" minlength="6" maxlength="56">
+                        <label for="password">Пароль</label>
+                        <span class="helper-text" data-error="Пароль должен быть длиннее 5 символов"
+                            data-success="верно!">Введите ваш пароль, длинна не
+                            менее 6
+                            символов</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input value="{{inputsData.passwordr}}" id="passwordr" type="password" required name="passwordr"
+                            class="validate" minlength="6" maxlength="56">
+                        <label for="passwordr">Пароль повторно</label>
+                        <span class="helper-text" data-error="Пароли должны совпадать" data-success="верно!">Повторите
+                            пароль</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input value="{{inputsData.name}}" id="name" type="text" class="validate" required name="name"
+                            minlength="2" maxlength="56">
+                        <label for="name">Никнейм</label>
+                        <span class="helper-text" data-error="Имя должно быть длинне 1 символа"
+                            data-success="верно!">Введите ваш ник</span>
+                    </div>
+                </div>
+                <button class="btn waves-effect waves-light" id="registerButton">Зарегистрироваться</button>
+
+                <input type="hidden" name="_csrf" value="{{csrf}}">
+            </form>
+        </div>
+    </div>
+</div>
+<link rel="stylesheet" href="/css/authPage.css">
+<script defer src="/js/authPage.js"></script>

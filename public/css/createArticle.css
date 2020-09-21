@@ -1,0 +1,28 @@
+.post-photo{
+    max-width: 100%;
+    height: auto;
+    margin: 5px 0;
+}
+
+#postContnet{
+    background: #eee;
+    padding-top: 5px;
+    position: relative;
+}
+
+.post-part{
+    position: relative;
+}
+
+.delete-item{
+    cursor: pointer;
+    position: absolute;
+    right: -1px;
+    top: -1px;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    padding-top: 3px;
+    border-radius: 50%;
+    z-index: 5;
+}

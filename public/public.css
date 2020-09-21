@@ -1,0 +1,46 @@
+.wrapper{
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.navbar{
+    padding: 0 10px;
+}
+
+.collapsible .rules__list {
+
+}
+.collapsible .rules__list .rules__item {
+    list-style: circle;
+    padding: 5px;
+}
+
+.mini-avatar{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.mini-avatar--medium{
+    width: 45px;
+    height: 45px;
+}
+
+.error-alert{
+    border-left: 4px solid red;
+    padding: 15px 5px 5px 10px;
+    font-size: 16px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.post-profiletext{
+
+}
+
+@media (max-width: 601px){
+    .post-profiletext{
+        font-size: 16px;
+    }
+}

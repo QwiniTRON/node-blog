@@ -1,0 +1,17 @@
+.col.s4.author-info{
+    padding-top: 20px;
+}
+
+.comment-avatar img{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.comment-text{
+    padding: 5px;
+}
+
+img{
+    max-width: 100%;
+}

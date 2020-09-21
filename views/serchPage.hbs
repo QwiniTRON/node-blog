@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="/css/searchPage.css">
+<div class="row">
+    <nav class="col s12 m10 l8 green hoverable">
+        <div class="nav-wrapper">
+            <form action="/article/search">
+                <div class="input-field">
+                    <input id="search" value="{{search}}" minlength="3" type="search" required name="searchtext">
+                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                    <i class="material-icons">close</i>
+                </div>
+            </form>
+        </div>
+    </nav>
+    <div class="row col s12 l10 offset-l1">
+        <h3>Посты</h3>
+
+        {{#each posts}}
+            {{#postToCard this}}
+
+            {{/postToCard}}
+        {{else}}
+        <p>Статей не нашлось</p><br>
+        <a href="/"> На главную </a>
+        {{/each}}
+
+        {{#getPaginationHtml postsCount postsOnPage limit search}}
+        {{/getPaginationHtml}}
+    </div>
+</div>

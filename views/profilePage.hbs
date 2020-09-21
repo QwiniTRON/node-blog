@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="/css/mainProfile.css">
+<div class="row profile-content">
+    <div class="col s12 l6 user-avatar">
+        {{#if user.photoName}}
+            <img class="user-avatar__photo" src="/{{user.photoName}}" alt="Картинка профиля">
+        {{else}}
+            <img class="user-avatar__photo" src="/img1.jpg" alt="Картинка профиля">
+        {{/if}}
+    </div>
+    <div class="col s12 l6">
+            <p class="col s12">
+                Email: {{user.email}}
+            </p>
+            <p class="col s12">Никнейм: {{user.name}}</p>
+    </div>
+</div>
+<div class="row">
+    <hr>
+    <div class="col s12">
+        <h4>Посты человека</h4>
+        {{#userPostsToHtml userPosts userDeletedPosts}}
+        {{/userPostsToHtml}}
+    </div>
+</div>
